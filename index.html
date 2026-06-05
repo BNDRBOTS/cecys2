@@ -7,71 +7,70 @@
     <meta name="description" content="A thoughtfully designed tiny-home community in Phoenix, Arizona, featuring on-site dining, quiet surroundings, and dedicated hospitality.">
     <meta name="theme-color" content="#1A1412">
     <meta name="color-scheme" content="dark">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://casacecy.com/">
+    <meta property="og:title" content="Casa Cecy | Curated Tiny Home Community">
+    <meta property="og:description" content="A thoughtfully designed tiny-home community in Phoenix, Arizona.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://r2-uploader-production.up.railway.app/files/362f9b68-13d3-40a7-ad31-5aa7e492af29.jpeg">
+    <meta name="twitter:card" content="summary_large_image">
 
-    <!-- Preconnect & Font Loading with display=swap -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Great+Vibes&display=swap" rel="stylesheet">
-
-    <!-- Tailwind via CDN -->
-    <script src="https://cdn.tailwindcss.com">
-    </script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            espresso: '#1A1412',
-                            copper: '#C06B3E',
-                            terracotta: '#8C4A32',
-                            sand: '#EAE6DF',
-                            charcoal: '#2D2825'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['"Cormorant Garamond"', 'serif'],
-                        display: ['Cinzel', 'serif'],
-                        serif: ['"Cormorant Garamond"', 'serif'],
-                        script: ['"Great Vibes"', 'cursive']
-                    },
-                    transitionTimingFunction: {
-                        'tactile': 'cubic-bezier(0.7,0,0.3,1)',
-                        'magnetic': 'cubic-bezier(0.175,0.885,0.32,1.275)'
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Great+Vibes&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Great+Vibes&display=swap" media="print" onload="this.media='all'">
 
     <style>
         :root {
             --color-espresso: #1A1412;
             --color-copper: #C06B3E;
+            --color-copper-soft: #D4895E;
             --color-terracotta: #8C4A32;
+            --color-terracotta-deep: #6B3522;
             --color-sand: #EAE6DF;
+            --color-sand-dim: #C5BFB5;
             --color-charcoal: #2D2825;
+            --color-charcoal-light: #3D3834;
             --ease-tactile: cubic-bezier(0.7, 0, 0.3, 1);
             --ease-magnetic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
             --cursor-size: 14px;
-            --cursor-active-size: 36px;
+            --cursor-active-size: 38px;
+            --max-width: 1400px;
+            --max-width-matrix: 1200px;
+            --space-xs: clamp(0.5rem, 1vw, 0.75rem);
+            --space-sm: clamp(0.75rem, 1.5vw, 1rem);
+            --space-md: clamp(1rem, 2vw, 1.5rem);
+            --space-lg: clamp(1.5rem, 3vw, 2.5rem);
+            --space-xl: clamp(2rem, 4vw, 4rem);
+            --space-2xl: clamp(3rem, 6vw, 6rem);
+            --space-3xl: clamp(4rem, 8vw, 8rem);
         }
 
         *,
         *::before,
         *::after {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         ::selection {
             background-color: var(--color-copper);
             color: var(--color-espresso);
+            text-shadow: none;
         }
 
         html {
             scroll-behavior: smooth;
             -webkit-text-size-adjust: 100%;
             text-size-adjust: 100%;
+            scrollbar-width: none;
+        }
+        html::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+            background: transparent;
         }
 
         body {
@@ -81,13 +80,11 @@
             font-family: 'Cormorant Garamond', serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            margin: 0;
-            padding: 0;
             min-height: 100vh;
             min-height: 100dvh;
+            line-height: 1.5;
         }
 
-        /* Only hide native cursor when custom cursor is active */
         body.custom-cursor-active {
             cursor: none;
         }
@@ -107,248 +104,13 @@
             .signature-cursor {
                 display: none !important;
             }
-        }
-
-        /* Noise Overlay */
-        .noise-layer {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 9998;
-            opacity: 0.025;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-        }
-
-        /* Hidden Scrollbar */
-        ::-webkit-scrollbar {
-            width: 0;
-            height: 0;
-            background: transparent;
-        }
-        /* Firefox */
-        html {
-            scrollbar-width: none;
-        }
-
-        /* Signature Cursor */
-        .signature-cursor {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: var(--cursor-size);
-            height: var(--cursor-size);
-            border: 1px solid rgba(192, 107, 62, 0.75);
-            background: transparent;
-            pointer-events: none;
-            z-index: 9999;
-            transform: translate(-50%, -50%) rotate(45deg);
-            transition: width 0.4s var(--ease-tactile),
-                height 0.4s var(--ease-tactile),
-                border-color 0.4s ease,
-                background-color 0.4s ease;
-            mix-blend-mode: difference;
-            will-change: left, top, width, height;
-        }
-        .signature-cursor::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 2px;
-            height: 2px;
-            background-color: #EAE6DF;
-            transform: translate(-50%, -50%);
-            transition: opacity 0.3s;
-        }
-        .signature-cursor.active {
-            width: var(--cursor-active-size);
-            height: var(--cursor-active-size);
-            background-color: rgba(234, 230, 223, 0.04);
-            border-color: rgba(234, 230, 223, 0.35);
-            backdrop-filter: blur(2px);
-        }
-        .signature-cursor.active::after {
-            opacity: 0;
-        }
-
-        /* Skip Link */
-        .skip-to-content {
-            position: absolute;
-            top: -100%;
-            left: 16px;
-            z-index: 10000;
-            background: var(--color-copper);
-            color: var(--color-espresso);
-            padding: 12px 20px;
-            font-family: Cinzel, serif;
-            font-size: 0.75rem;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            text-decoration: none;
-            font-weight: 700;
-            transition: top 0.3s var(--ease-tactile);
-            border-radius: 0 0 4px 4px;
-        }
-        .skip-to-content:focus {
-            top: 0;
-            outline: 2px solid var(--color-sand);
-            outline-offset: 2px;
-        }
-
-        /* Clip Reveal */
-        .clip-reveal {
-            clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
-            transition: clip-path 1.4s var(--ease-tactile);
-        }
-        .clip-reveal.in-view {
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-        }
-
-        /* Fade Offset */
-        .fade-offset {
-            opacity: 0;
-            transform: translateY(40px) rotate(-2deg);
-            transition: opacity 1.2s var(--ease-tactile), transform 1.2s var(--ease-tactile);
-        }
-        .fade-offset.in-view {
-            opacity: 1;
-            transform: translateY(0) rotate(0deg);
-        }
-
-        /* Image Monochrome Treatment */
-        .image-monochrome {
-            filter: grayscale(100%) contrast(1.1) sepia(20%);
-            transition: filter 0.8s var(--ease-tactile), transform 1.2s var(--ease-tactile);
-        }
-        .image-monochrome:hover {
-            filter: grayscale(0%) contrast(1) sepia(0%);
-            transform: scale(1.02);
-        }
-
-        /* Matrix Rows */
-        .matrix-row {
-            transition: opacity 0.4s ease, transform 0.6s var(--ease-tactile);
-            position: relative;
-        }
-        .matrix-container:hover .matrix-row:not(:hover) {
-            opacity: 0.2;
-            transform: translateX(-10px);
-        }
-        .matrix-row:hover {
-            transform: translateX(20px);
-        }
-        .matrix-row::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0%;
-            height: 1px;
-            background-color: var(--color-copper);
-            transition: width 0.6s var(--ease-tactile);
-        }
-        .matrix-row:hover::after {
-            width: 100%;
-        }
-
-        /* Polaroid Cards */
-        .polaroid-card {
-            transform-origin: center top;
-            transition: transform 0.6s var(--ease-magnetic), box-shadow 0.6s ease;
-        }
-        .polaroid-card:hover {
-            transform: translateY(-15px) rotate(0deg) scale(1.05) !important;
-            box-shadow: 0 25px 50px -12px rgba(192, 107, 62, 0.18);
-            z-index: 10;
-        }
-
-        /* Mobile Menu */
-        .mobile-menu-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(26, 20, 18, 0.97);
-            z-index: 9000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.5s var(--ease-tactile);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-        .mobile-menu-overlay.open {
-            opacity: 1;
-            pointer-events: auto;
-        }
-        .mobile-menu-overlay a {
-            font-family: Cinzel, serif;
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: var(--color-sand);
-            text-decoration: none;
-            padding: 1rem 2rem;
-            transition: color 0.3s, transform 0.3s var(--ease-magnetic);
-            font-weight: 700;
-        }
-        .mobile-menu-overlay a:hover,
-        .mobile-menu-overlay a:focus-visible {
-            color: var(--color-copper);
-            transform: scale(1.08);
-            outline: none;
-        }
-        .hamburger-btn {
-            position: relative;
-            z-index: 9100;
-            width: 40px;
-            height: 32px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 4px 0;
-            pointer-events: auto;
-            -webkit-tap-highlight-color: transparent;
-        }
-        .hamburger-btn span {
-            display: block;
-            width: 100%;
-            height: 2px;
-            background: var(--color-sand);
-            transition: transform 0.4s var(--ease-tactile), opacity 0.3s;
-            transform-origin: center;
-        }
-        .hamburger-btn.open span:nth-child(1) {
-            transform: translateY(11px) rotate(45deg);
-        }
-        .hamburger-btn.open span:nth-child(2) {
-            opacity: 0;
-            transform: scaleX(0);
-        }
-        .hamburger-btn.open span:nth-child(3) {
-            transform: translateY(-11px) rotate(-45deg);
-        }
-
-        /* Slideshow */
-        .slideshow-img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: opacity 1s ease-in-out;
-            will-change: opacity;
-        }
-
-        /* Reduced Motion */
-        @media (prefers-reduced-motion:reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
             .clip-reveal {
                 clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%) !important;
                 transition: none !important;
@@ -361,36 +123,1531 @@
             .parallax-media {
                 transform: none !important;
             }
-            .signature-cursor {
-                display: none !important;
+        }
+
+        .noise-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0.022;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            mix-blend-mode: overlay;
+        }
+
+        .signature-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: var(--cursor-size);
+            height: var(--cursor-size);
+            border: 1.5px solid rgba(192, 107, 62, 0.8);
+            background: transparent;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%) rotate(45deg);
+            transition: width 0.45s var(--ease-tactile), height 0.45s var(--ease-tactile), border-color 0.4s ease, background-color 0.4s ease, filter 0.4s ease, border-radius 0.45s var(--ease-tactile);
+            mix-blend-mode: difference;
+            will-change: left, top, width, height, transform;
+            filter: drop-shadow(0 0 6px rgba(234, 230, 223, 0.6));
+            border-radius: 1px;
+        }
+        .signature-cursor::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 2.5px;
+            height: 2.5px;
+            background-color: #EAE6DF;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.35s, width 0.35s, height 0.35s, background-color 0.35s;
+        }
+        .signature-cursor.active {
+            width: var(--cursor-active-size);
+            height: var(--cursor-active-size);
+            background-color: rgba(234, 230, 223, 0.04);
+            border-color: rgba(234, 230, 223, 0.5);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+            filter: drop-shadow(0 0 14px rgba(234, 230, 223, 0.85));
+            border-radius: 3px;
+        }
+        .signature-cursor.active::after {
+            opacity: 1;
+            width: 3.5px;
+            height: 3.5px;
+            background-color: var(--color-copper);
+        }
+        .signature-cursor.clicking {
+            width: calc(var(--cursor-size) * 0.7);
+            height: calc(var(--cursor-size) * 0.7);
+            border-color: var(--color-copper-soft);
+            filter: drop-shadow(0 0 20px rgba(192, 107, 62, 1));
+        }
+
+        .skip-to-content {
+            position: fixed;
+            top: -100%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10001;
+            background: var(--color-copper);
+            color: var(--color-espresso);
+            padding: 12px 24px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: 700;
+            transition: top 0.35s var(--ease-tactile);
+            border-radius: 0 0 6px 6px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+        }
+        .skip-to-content:focus {
+            top: 0;
+            outline: 2px solid var(--color-sand);
+            outline-offset: 3px;
+        }
+
+        .clip-reveal {
+            clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+            transition: clip-path 1.5s var(--ease-tactile);
+            will-change: clip-path;
+        }
+        .clip-reveal.in-view {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .fade-offset {
+            opacity: 0;
+            transform: translateY(36px);
+            transition: opacity 1.3s var(--ease-tactile), transform 1.3s var(--ease-tactile);
+            will-change: opacity, transform;
+        }
+        .fade-offset.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .image-monochrome {
+            filter: grayscale(100%) contrast(1.08) sepia(18%);
+            transition: filter 0.9s var(--ease-tactile), transform 1.4s var(--ease-tactile);
+            will-change: filter, transform;
+        }
+        .image-monochrome:hover {
+            filter: grayscale(0%) contrast(1) sepia(0%);
+            transform: scale(1.03);
+        }
+
+        .matrix-row {
+            transition: opacity 0.45s ease, transform 0.65s var(--ease-tactile), padding-left 0.4s var(--ease-tactile);
+            position: relative;
+            cursor: pointer;
+        }
+        .matrix-container:hover .matrix-row:not(:hover) {
+            opacity: 0.18;
+            transform: translateX(-6px);
+        }
+        .matrix-row:hover {
+            transform: translateX(16px);
+            padding-left: 0.5rem;
+        }
+        .matrix-row::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 0%;
+            height: 1px;
+            background-color: var(--color-copper);
+            transition: width 0.7s var(--ease-tactile);
+        }
+        .matrix-row:hover::after {
+            width: 100%;
+        }
+
+        .polaroid-card {
+            transform-origin: center top;
+            transition: transform 0.65s var(--ease-magnetic), box-shadow 0.65s ease, z-index 0.1s;
+            position: relative;
+            z-index: 1;
+        }
+        .polaroid-card:hover {
+            transform: translateY(-18px) rotate(0deg) scale(1.06) !important;
+            box-shadow: 0 30px 60px -14px rgba(192, 107, 62, 0.22);
+            z-index: 10;
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(26, 20, 18, 0.975);
+            z-index: 9000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.55s var(--ease-tactile);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .mobile-menu-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .mobile-menu-overlay a {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.5rem, 4vw, 2.75rem);
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--color-sand);
+            text-decoration: none;
+            padding: 1rem 2rem;
+            transition: color 0.35s, transform 0.35s var(--ease-magnetic), letter-spacing 0.35s;
+            font-weight: 700;
+            position: relative;
+            display: block;
+        }
+        .mobile-menu-overlay a::after {
+            content: '';
+            position: absolute;
+            bottom: 0.5rem;
+            left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            width: 60%;
+            height: 1px;
+            background: var(--color-copper);
+            transition: transform 0.5s var(--ease-tactile);
+        }
+        .mobile-menu-overlay a:hover::after,
+        .mobile-menu-overlay a:focus-visible::after {
+            transform: translateX(-50%) scaleX(1);
+        }
+        .mobile-menu-overlay a:hover,
+        .mobile-menu-overlay a:focus-visible {
+            color: var(--color-copper-soft);
+            transform: scale(1.06);
+            letter-spacing: 0.3em;
+            outline: none;
+        }
+
+        .hamburger-btn {
+            position: relative;
+            z-index: 9100;
+            width: 40px;
+            height: 30px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 3px 0;
+            pointer-events: auto;
+            -webkit-tap-highlight-color: transparent;
+        }
+        @media (min-width: 768px) {
+            .hamburger-btn {
+                display: none;
             }
-            body {
-                cursor: auto !important;
+        }
+        .hamburger-btn span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: var(--color-sand);
+            transition: transform 0.45s var(--ease-tactile), opacity 0.35s;
+            transform-origin: center;
+            border-radius: 1px;
+        }
+        .hamburger-btn.open span:nth-child(1) {
+            transform: translateY(11px) rotate(45deg);
+        }
+        .hamburger-btn.open span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        .hamburger-btn.open span:nth-child(3) {
+            transform: translateY(-11px) rotate(-45deg);
+        }
+
+        .slideshow {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(26, 20, 18, 0.35);
+            background: var(--color-charcoal);
+        }
+        .slideshow-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 1.2s ease-in-out, transform 1.4s var(--ease-tactile);
+            will-change: opacity, transform;
+        }
+        .slideshow-img.active {
+            opacity: 1;
+            z-index: 10;
+            transform: scale(1);
+        }
+        .slideshow-img:not(.active) {
+            opacity: 0;
+            z-index: 0;
+            transform: scale(1.06);
+        }
+
+        .gallery-caption-card {
+            position: absolute;
+            bottom: -2rem;
+            left: -2rem;
+            width: 14rem;
+            height: 10rem;
+            background: var(--color-espresso);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            z-index: 30;
+            transition: transform 0.8s var(--ease-tactile), box-shadow 0.8s ease;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.55);
+            border-top: 1px solid rgba(192, 107, 62, 0.18);
+            border-right: 1px solid rgba(192, 107, 62, 0.18);
+        }
+        @media (min-width: 768px) {
+            .gallery-caption-card {
+                display: flex;
+                width: 16rem;
+                height: 12rem;
+                bottom: -2.5rem;
+                left: -2.5rem;
             }
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
+        }
+        .vision-image:hover .gallery-caption-card {
+            transform: translate(1.25rem, -1.25rem);
+            box-shadow: 0 35px 60px -14px rgba(0, 0, 0, 0.65);
+        }
+        .gallery-caption-text {
+            font-family: 'Cinzel', serif;
+            color: var(--color-copper);
+            text-align: center;
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            transition: opacity 0.55s;
+            line-height: 1.7;
+        }
+        @media (min-width: 768px) {
+            .gallery-caption-text {
+                font-size: 0.75rem;
             }
         }
 
-        /* Focus visible */
+        .font-display {
+            font-family: 'Cinzel', serif;
+        }
+        .font-serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .font-script {
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 50;
+            pointer-events: none;
+            mix-blend-mode: difference;
+            padding: 0;
+        }
+        .nav-container {
+            width: 100%;
+            padding: 1.25rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        @media (min-width: 768px) {
+            .nav-container {
+                padding: 2rem 3rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            .nav-container {
+                padding: 2.5rem 4rem;
+            }
+        }
+
+        .nav-logo {
+            pointer-events: auto;
+            display: inline-block;
+        }
+        .nav-logo a {
+            font-family: 'Cinzel', serif;
+            color: var(--color-sand);
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-decoration: none;
+            position: relative;
+            display: inline-block;
+        }
+        .nav-logo .underline {
+            position: absolute;
+            bottom: -0.4rem;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--color-copper);
+            transition: width 0.55s var(--ease-tactile);
+        }
+        .nav-logo a:hover .underline,
+        .nav-logo a:focus-visible .underline {
+            width: 100%;
+        }
+
+        .nav-links-desktop {
+            pointer-events: auto;
+            display: none;
+            align-items: center;
+            gap: 1.75rem;
+        }
+        @media (min-width: 768px) {
+            .nav-links-desktop {
+                display: flex;
+            }
+        }
+        .nav-links-desktop a {
+            font-family: 'Cinzel', serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: white;
+            text-decoration: none;
+            font-weight: 800;
+            transition: color 0.35s, transform 0.35s var(--ease-magnetic);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+            position: relative;
+        }
+        @media (min-width: 1024px) {
+            .nav-links-desktop a {
+                font-size: 0.75rem;
+            }
+        }
+        .nav-links-desktop a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--color-copper);
+            transition: width 0.4s var(--ease-tactile);
+        }
+        .nav-links-desktop a:hover::after,
+        .nav-links-desktop a:focus-visible::after {
+            width: 100%;
+        }
+        .nav-links-desktop a:hover,
+        .nav-links-desktop a:focus-visible {
+            color: var(--color-copper-soft);
+            transform: scale(1.08);
+            outline: none;
+        }
+        .nav-reserve {
+            color: #EAA27B !important;
+            margin-left: 0.5rem;
+            padding-left: 1.25rem;
+            position: relative;
+        }
+        .nav-reserve .arrow {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%) translateX(-100%);
+            width: 0.5rem;
+            height: 1px;
+            background: #EAA27B;
+            transition: transform 0.4s var(--ease-tactile);
+        }
+        .nav-reserve:hover .arrow,
+        .nav-reserve:focus-visible .arrow {
+            transform: translateY(-50%) translateX(0);
+        }
+        .nav-reserve span {
+            transition: padding 0.4s var(--ease-tactile);
+            display: inline-block;
+        }
+        .nav-reserve:hover span,
+        .nav-reserve:focus-visible span {
+            padding-left: 0.5rem;
+        }
+
+        .hero {
+            position: relative;
+            min-height: 110vh;
+            min-height: 110dvh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            background: var(--color-espresso);
+            overflow: hidden;
+        }
+        .hero-video-mask {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+        @media (min-width: 768px) {
+            .hero-video-mask {
+                width: 85%;
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 18% 100%);
+            }
+        }
+        @media (min-width: 1024px) {
+            .hero-video-mask {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 100%);
+            }
+        }
+        .hero-video-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to left, rgba(26, 20, 18, 0.35), rgba(26, 20, 18, 0.65), var(--color-espresso));
+            mix-blend-mode: multiply;
+            z-index: 10;
+            pointer-events: none;
+        }
+        .hero-video-tint {
+            position: absolute;
+            inset: 0;
+            background: rgba(140, 74, 50, 0.18);
+            mix-blend-mode: overlay;
+            z-index: 10;
+            pointer-events: none;
+        }
+        .hero-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.12);
+            will-change: transform;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 20;
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 6rem 1.25rem 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        @media (min-width: 768px) {
+            .hero-content {
+                padding: 7rem 3rem 0;
+                width: 66.666%;
+            }
+        }
+        @media (min-width: 1024px) {
+            .hero-content {
+                width: 50%;
+                padding: 8rem 4rem 0;
+            }
+        }
+        .hero-subtitle {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.5em;
+            color: var(--color-copper);
+            text-transform: uppercase;
+            font-size: clamp(0.65rem, 1.5vw, 0.875rem);
+            font-weight: 700;
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+        }
+        .hero-headline-group {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: clamp(2rem, 4vw, 3rem);
+            z-index: 10;
+            width: 100%;
+        }
+        .hero-headline {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(3rem, 8vw, 11rem);
+            letter-spacing: 0.12em;
+            line-height: 0.82;
+            color: var(--color-sand);
+            text-shadow: 0 4px 16px rgba(0, 0, 0, 0.7);
+            overflow: hidden;
+            width: 100%;
+        }
+        .hero-script-pos {
+            position: absolute;
+            top: 58%;
+            left: 8%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            z-index: 20;
+            pointer-events: none;
+        }
+        @media (min-width: 400px) {
+            .hero-script-pos {
+                left: 16%;
+            }
+        }
+        @media (min-width: 768px) {
+            .hero-script-pos {
+                top: 68%;
+                left: 38%;
+            }
+        }
+        @media (min-width: 1024px) {
+            .hero-script-pos {
+                top: 72%;
+                left: 40%;
+            }
+        }
+        .hero-script-home {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(3.5rem, 8vw, 10rem);
+            color: white;
+            line-height: 1;
+            text-shadow: 0 4px 16px rgba(0, 0, 0, 0.7);
+            transform: rotate(-4deg);
+        }
+        .hero-script-relax {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2.5rem, 5vw, 6rem);
+            color: var(--color-copper);
+            line-height: 1;
+            margin-top: clamp(-1rem, -2vw, -4rem);
+            margin-left: clamp(1rem, 4vw, 6rem);
+            text-shadow: 0 4px 16px rgba(0, 0, 0, 0.7);
+            transform: rotate(2deg);
+        }
+        .hero-description {
+            max-width: 28rem;
+            border-left: 2px solid rgba(192, 107, 62, 0.55);
+            padding-left: clamp(1rem, 2vw, 2rem);
+            margin-top: clamp(3rem, 6vw, 8rem);
+            margin-left: 0;
+        }
+        @media (min-width: 768px) {
+            .hero-description {
+                margin-left: 2rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            .hero-description {
+                margin-left: 3rem;
+            }
+        }
+        .hero-description p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: var(--color-sand);
+            line-height: 1.6;
+            font-style: italic;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+            font-weight: 500;
+        }
+        .hero-btn-wrap {
+            margin-top: clamp(2rem, 3vw, 4rem);
+            margin-left: 0;
+        }
+        @media (min-width: 768px) {
+            .hero-btn-wrap {
+                margin-left: 2rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            .hero-btn-wrap {
+                margin-left: 3rem;
+            }
+        }
+        .hero-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: 2px solid var(--color-copper);
+            color: var(--color-sand);
+            font-family: 'Cinzel', serif;
+            font-size: clamp(0.65rem, 1.2vw, 0.8rem);
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            padding: clamp(1rem, 2vw, 1.5rem) clamp(1.5rem, 3vw, 3rem);
+            text-decoration: none;
+            font-weight: 700;
+            transition: background 0.55s, color 0.55s, border-color 0.55s, box-shadow 0.55s;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(192, 107, 62, 0.35);
+        }
+        .hero-btn .btn-overlay {
+            position: absolute;
+            inset: 0;
+            background: var(--color-terracotta);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.55s var(--ease-tactile);
+            z-index: 0;
+        }
+        .hero-btn:hover .btn-overlay,
+        .hero-btn:focus-visible .btn-overlay {
+            transform: scaleX(1);
+        }
+        .hero-btn:hover,
+        .hero-btn:focus-visible {
+            background: var(--color-copper);
+            color: var(--color-espresso);
+            border-color: var(--color-copper-soft);
+            box-shadow: 0 0 35px rgba(192, 107, 62, 0.6);
+            outline: none;
+        }
+        .hero-btn span {
+            position: relative;
+            z-index: 10;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 0;
+            right: 1.5rem;
+            z-index: 20;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 2.5rem;
+            mix-blend-mode: difference;
+        }
+        @media (min-width: 768px) {
+            .scroll-indicator {
+                right: 5rem;
+                padding-bottom: 3rem;
+            }
+        }
+        .scroll-indicator span {
+            font-family: 'Cinzel', serif;
+            font-size: 9px;
+            letter-spacing: 0.35em;
+            color: var(--color-sand);
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+            transform: rotate(90deg) translateY(2.5rem);
+            transform-origin: bottom;
+            font-weight: 700;
+        }
+        .scroll-line {
+            width: 1px;
+            height: 5rem;
+            background: rgba(234, 230, 223, 0.18);
+            position: relative;
+            overflow: hidden;
+        }
+        @media (min-width: 768px) {
+            .scroll-line {
+                height: 6rem;
+            }
+        }
+        .scroll-line-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 33%;
+            background: var(--color-copper);
+            will-change: transform;
+        }
+
+        .vision {
+            position: relative;
+            padding: var(--space-3xl) 0;
+            background: var(--color-sand);
+            color: var(--color-espresso);
+            overflow: hidden;
+        }
+        .vision-bg-text {
+            position: absolute;
+            top: 3rem;
+            left: 1.5rem;
+            font-family: 'Cinzel', serif;
+            font-size: clamp(4rem, 15vw, 18rem);
+            font-weight: 700;
+            color: rgba(45, 40, 37, 0.04);
+            line-height: 1;
+            pointer-events: none;
+            user-select: none;
+            white-space: nowrap;
+            z-index: 0;
+        }
+        .vision-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.25rem;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+        }
+        @media (min-width: 1024px) {
+            .vision-container {
+                flex-direction: row;
+                position: relative;
+                padding: 0 2rem;
+            }
+        }
+        .vision-text {
+            padding: clamp(1.5rem, 3vw, 2.5rem);
+            background-color: var(--color-sand);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.06);
+            z-index: 20;
+            order: 2;
+            position: relative;
+        }
+        @media (min-width: 1024px) {
+            .vision-text {
+                width: 41.666%;
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+                order: 1;
+                padding: 2.5rem;
+            }
+        }
+        .vision-label {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .vision-label-line {
+            width: 3rem;
+            height: 2px;
+            background: var(--color-copper);
+        }
+        .vision-label-text {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.3em;
+            color: var(--color-terracotta);
+            text-transform: uppercase;
+            font-size: clamp(0.65rem, 1vw, 0.75rem);
+            font-weight: 700;
+        }
+        .vision-headline {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.75rem, 4vw, 4.5rem);
+            margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+            line-height: 1.1;
+            color: var(--color-charcoal);
+        }
+        .vision-headline em {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            color: var(--color-copper);
+            font-weight: 700;
+        }
+        .vision-desc {
+            position: relative;
+            padding-right: 0;
+        }
+        .vision-desc::before {
+            content: '';
+            position: absolute;
+            left: -1rem;
+            top: 0.5rem;
+            bottom: 0.5rem;
+            width: 2px;
+            background: rgba(45, 40, 37, 0.18);
+        }
+        .vision-desc p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1rem, 1.8vw, 1.5rem);
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+            color: var(--color-charcoal);
+            font-weight: 500;
+        }
+        .vision-desc p:last-child {
+            font-size: clamp(0.9rem, 1.5vw, 1.25rem);
+            margin-bottom: 0;
+        }
+        .vision-image {
+            width: 100%;
+            height: 55vh;
+            order: 1;
+            position: relative;
+            z-index: 0;
+        }
+        @media (min-width: 768px) {
+            .vision-image {
+                height: 65vh;
+            }
+        }
+        @media (min-width: 1024px) {
+            .vision-image {
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 66.666%;
+                height: 90vh;
+                transform: translateY(-6rem);
+                order: 2;
+                z-index: 0;
+            }
+        }
+
+        .protocols {
+            position: relative;
+            padding: var(--space-3xl) 0;
+            background: var(--color-charcoal);
+            color: var(--color-sand);
+            border-top: 1px solid var(--color-espresso);
+            overflow: hidden;
+        }
+        .protocols-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.25rem;
+            position: relative;
+            z-index: 10;
+        }
+        @media (min-width: 768px) {
+            .protocols-container {
+                padding: 0 2rem;
+            }
+        }
+        .protocols-head {
+            margin-bottom: var(--space-2xl);
+            margin-left: 0;
+        }
+        @media (min-width: 768px) {
+            .protocols-head {
+                margin-left: 4rem;
+                margin-bottom: var(--space-3xl);
+            }
+        }
+        @media (min-width: 1024px) {
+            .protocols-head {
+                margin-left: 6rem;
+            }
+        }
+        .protocols-label {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.3em;
+            color: var(--color-copper);
+            text-transform: uppercase;
+            font-size: clamp(0.65rem, 1vw, 0.75rem);
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .protocols-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.75rem, 5vw, 4.5rem);
+            line-height: 1.15;
+            color: var(--color-sand);
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+        }
+        .protocols-title em {
+            color: var(--color-terracotta);
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+        }
+        .protocols-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        @media (min-width: 768px) {
+            .protocols-cards {
+                gap: 0;
+            }
+        }
+        .protocol-card {
+            padding: clamp(1.5rem, 3vw, 4rem);
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            z-index: 30;
+            transition: box-shadow 0.5s ease, transform 0.5s var(--ease-tactile);
+        }
+        .protocol-card:hover {
+            box-shadow: 0 35px 65px -14px rgba(0, 0, 0, 0.6);
+            transform: translateY(-4px);
+        }
+        .protocol-card-1 {
+            background: var(--color-espresso);
+        }
+        @media (min-width: 768px) {
+            .protocol-card-1 {
+                width: 45%;
+            }
+        }
+        .protocol-card-2 {
+            background: var(--color-terracotta);
+        }
+        @media (min-width: 768px) {
+            .protocol-card-2 {
+                width: 40%;
+                margin-left: auto;
+                margin-top: -7rem;
+                z-index: 20;
+            }
+        }
+        .protocol-card-3 {
+            background: transparent;
+            border-left: 2px solid rgba(192, 107, 62, 0.55);
+            border-bottom: 2px solid rgba(192, 107, 62, 0.55);
+        }
+        @media (min-width: 768px) {
+            .protocol-card-3 {
+                width: 50%;
+                margin-left: 14%;
+                margin-top: -2.5rem;
+                z-index: 10;
+            }
+        }
+        .protocol-card-number {
+            position: absolute;
+            top: 0;
+            font-family: 'Cinzel', serif;
+            font-size: clamp(4rem, 8vw, 8rem);
+            font-weight: 900;
+            line-height: 1;
+            opacity: 0.45;
+            pointer-events: none;
+            transition: color 0.55s, opacity 0.55s;
+        }
+        .protocol-card-1 .protocol-card-number {
+            right: 0;
+            margin-top: -2rem;
+            margin-right: -0.5rem;
+            color: var(--color-charcoal);
+        }
+        .protocol-card-2 .protocol-card-number {
+            left: 0;
+            margin-top: -1.5rem;
+            margin-left: -1rem;
+            color: rgba(192, 107, 62, 0.35);
+        }
+        .protocol-card-3 .protocol-card-number {
+            right: 0.5rem;
+            margin-top: -2.5rem;
+            color: var(--color-espresso);
+        }
+        @media (min-width: 768px) {
+            .protocol-card-1 .protocol-card-number {
+                margin-top: -3.5rem;
+                margin-right: -1.5rem;
+            }
+            .protocol-card-2 .protocol-card-number {
+                margin-top: -2.5rem;
+                margin-left: -2.5rem;
+            }
+            .protocol-card-3 .protocol-card-number {
+                right: 2rem;
+                margin-top: -4.5rem;
+            }
+        }
+        .protocol-card:hover .protocol-card-number {
+            opacity: 0.7;
+        }
+        .protocol-card-1:hover .protocol-card-number {
+            color: var(--color-copper);
+        }
+        .protocol-card-2:hover .protocol-card-number {
+            color: var(--color-espresso);
+        }
+        .protocol-card-3:hover .protocol-card-number {
+            color: var(--color-copper);
+        }
+        .protocol-card-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+            position: relative;
+            z-index: 10;
+            font-weight: 700;
+        }
+        .protocol-card-1 .protocol-card-title {
+            color: var(--color-sand);
+        }
+        .protocol-card-2 .protocol-card-title {
+            color: var(--color-espresso);
+        }
+        .protocol-card-3 .protocol-card-title {
+            color: var(--color-copper);
+        }
+        .protocol-card-list {
+            list-style: none;
+            padding: 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1rem, 1.5vw, 1.25rem);
+            position: relative;
+            z-index: 10;
+        }
+        .protocol-card-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.85rem;
+            color: rgba(234, 230, 223, 0.88);
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        .protocol-card-2 .protocol-card-list li {
+            color: var(--color-sand);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        .protocol-card-list .bullet {
+            margin-right: 0.85rem;
+            margin-top: 0.2rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .protocol-card-1 .bullet {
+            color: var(--color-copper);
+        }
+        .protocol-card-2 .bullet {
+            color: var(--color-espresso);
+        }
+        .protocol-card-3 .bullet {
+            color: var(--color-terracotta);
+        }
+
+        .location {
+            padding: var(--space-3xl) 0;
+            background: var(--color-espresso);
+            color: var(--color-sand);
+            position: relative;
+            border-top: 1px solid var(--color-charcoal);
+            overflow: hidden;
+        }
+        .location-bg-svg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.04;
+        }
+        .location-container {
+            max-width: var(--max-width-matrix);
+            margin: 0 auto;
+            padding: 0 1.25rem;
+            position: relative;
+            z-index: 10;
+        }
+        @media (min-width: 768px) {
+            .location-container {
+                padding: 0 2rem;
+            }
+        }
+        .location-head {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: var(--space-xl);
+        }
+        @media (min-width: 768px) {
+            .location-head {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-end;
+                margin-bottom: var(--space-2xl);
+            }
+        }
+        .location-title {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.5rem, 4vw, 3.75rem);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+            color: var(--color-sand);
+        }
+        .location-title em {
+            color: var(--color-terracotta);
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+        }
+        .location-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            color: rgba(234, 230, 223, 0.88);
+            font-size: clamp(1rem, 1.8vw, 1.5rem);
+            font-weight: 500;
+            max-width: 30rem;
+        }
+        .location-divider {
+            display: none;
+        }
+        @media (min-width: 768px) {
+            .location-divider {
+                display: block;
+                width: 7rem;
+                height: 2px;
+                background: rgba(192, 107, 62, 0.75);
+                box-shadow: 0 0 12px rgba(192, 107, 62, 0.4);
+                flex-shrink: 0;
+                margin-left: 2rem;
+            }
+        }
+        .matrix-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        .matrix-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: clamp(0.85rem, 2vw, 2rem) 0;
+            border-top: 1px solid var(--color-charcoal);
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: clamp(0.85rem, 2vw, 1.875rem);
+        }
+        .matrix-row:last-child {
+            border-bottom: 1px solid var(--color-charcoal);
+        }
+        .matrix-row .location-name {
+            color: var(--color-sand);
+            transition: color 0.35s, padding-left 0.4s var(--ease-tactile);
+            position: relative;
+            z-index: 10;
+        }
+        .matrix-row:hover .location-name {
+            color: white;
+        }
+        .matrix-row .distance {
+            color: var(--color-copper);
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: clamp(0.65rem, 1.2vw, 1.125rem);
+            position: relative;
+            z-index: 10;
+            transition: color 0.35s;
+        }
+        .matrix-row:hover .distance {
+            color: var(--color-copper-soft);
+        }
+
+        .reviews {
+            padding: var(--space-3xl) 0;
+            background: var(--color-sand);
+            color: var(--color-espresso);
+            overflow: hidden;
+            position: relative;
+        }
+        .reviews-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.25rem;
+            position: relative;
+            z-index: 10;
+        }
+        @media (min-width: 768px) {
+            .reviews-container {
+                padding: 0 2rem;
+            }
+        }
+        .reviews-header {
+            margin-bottom: var(--space-xl);
+        }
+        @media (min-width: 768px) {
+            .reviews-header {
+                margin-bottom: var(--space-2xl);
+            }
+        }
+        .reviews-label {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.3em;
+            color: var(--color-copper);
+            text-transform: uppercase;
+            font-size: clamp(0.65rem, 1vw, 0.75rem);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        .reviews-score {
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
+        }
+        .reviews-score-number {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.5rem, 6vw, 6rem);
+            font-weight: 700;
+            color: var(--color-charcoal);
+        }
+        .reviews-score-outof {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(1.25rem, 2.5vw, 1.875rem);
+            color: var(--color-terracotta);
+            font-weight: 700;
+        }
+        .reviews-based {
+            font-family: 'Cormorant Garamond', serif;
+            color: rgba(45, 40, 37, 0.85);
+            margin-top: 0.75rem;
+            font-size: clamp(1rem, 1.5vw, 1.25rem);
+            font-style: italic;
+            border-left: 2px solid var(--color-copper);
+            padding-left: 1rem;
+            font-weight: 500;
+        }
+        .polaroid-deck {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+        @media (min-width: 768px) {
+            .polaroid-deck {
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex-start;
+                gap: 2.5rem;
+                min-height: 500px;
+            }
+        }
+        .polaroid-card {
+            width: 100%;
+            max-width: 420px;
+            background: white;
+            padding: clamp(1.5rem, 3vw, 3rem);
+            box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.12);
+            border: 1px solid rgba(234, 230, 223, 0.5);
+        }
+        @media (min-width: 768px) {
+            .polaroid-card {
+                width: 33.333%;
+                max-width: none;
+            }
+        }
+        .polaroid-stars {
+            color: var(--color-terracotta);
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            letter-spacing: 0.1em;
+            margin-bottom: clamp(1rem, 2vw, 2rem);
+        }
+        .polaroid-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1rem, 1.6vw, 1.5rem);
+            color: var(--color-charcoal);
+            line-height: 1.6;
+            margin-bottom: clamp(1.5rem, 2.5vw, 2.5rem);
+            font-style: italic;
+            font-weight: 500;
+        }
+        .polaroid-author {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .polaroid-author-line {
+            width: 2rem;
+            height: 2px;
+            background: var(--color-copper);
+            flex-shrink: 0;
+        }
+        .polaroid-author-name {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(0.6rem, 0.9vw, 0.75rem);
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--color-espresso);
+        }
+
+        .footer {
+            background: var(--color-charcoal);
+            padding: var(--space-2xl) 0 var(--space-lg);
+            position: relative;
+            overflow: hidden;
+            color: var(--color-sand);
+            border-top: 1px solid rgba(192, 107, 62, 0.45);
+            box-shadow: inset 0 20px 40px rgba(26, 20, 18, 0.8);
+        }
+        @media (min-width: 768px) {
+            .footer {
+                padding: var(--space-3xl) 0 var(--space-xl);
+            }
+        }
+        .footer-bg-text {
+            position: absolute;
+            bottom: -6vw;
+            left: -3vw;
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(6rem, 25vw, 22rem);
+            color: rgba(26, 20, 18, 0.75);
+            pointer-events: none;
+            user-select: none;
+            z-index: 0;
+            line-height: 1;
+        }
+        @media (min-width: 768px) {
+            .footer-bg-text {
+                bottom: -10vw;
+                left: -5vw;
+            }
+        }
+        .footer-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.25rem;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        @media (min-width: 768px) {
+            .footer-container {
+                flex-direction: row;
+                align-items: flex-end;
+                padding: 0 2rem;
+            }
+        }
+        .footer-left {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+        @media (min-width: 768px) {
+            .footer-left {
+                width: 50%;
+                margin-bottom: 0;
+            }
+        }
+        .footer-logo {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.5rem, 3.5vw, 3rem);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            color: var(--color-sand);
+        }
+        @media (min-width: 768px) {
+            .footer-logo {
+                margin-bottom: 2.5rem;
+            }
+        }
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+            font-family: 'Cinzel', serif;
+            font-size: clamp(0.65rem, 1vw, 0.875rem);
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: rgba(234, 230, 223, 0.88);
+        }
+        .footer-links a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.35s, transform 0.35s var(--ease-magnetic);
+            display: inline-block;
+            width: max-content;
+        }
+        .footer-links a:hover,
+        .footer-links a:focus-visible {
+            color: var(--color-copper-soft);
+            transform: scale(1.05);
+            outline: none;
+        }
+        .footer-right {
+            width: 100%;
+            text-align: left;
+            margin-top: 1rem;
+        }
+        @media (min-width: 768px) {
+            .footer-right {
+                width: 50%;
+                text-align: right;
+                margin-top: 0;
+            }
+        }
+        .footer-cta {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(1.75rem, 3.5vw, 3rem);
+            color: var(--color-copper);
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 2rem;
+            transition: color 0.5s, transform 0.5s var(--ease-magnetic);
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+        }
+        @media (min-width: 768px) {
+            .footer-cta {
+                margin-bottom: 3rem;
+            }
+        }
+        .footer-cta:hover,
+        .footer-cta:focus-visible {
+            color: white;
+            transform: scale(1.06);
+            outline: none;
+        }
+        .footer-copy {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(0.9rem, 1.2vw, 1.125rem);
+            color: rgba(234, 230, 223, 0.78);
+            font-style: italic;
+            font-weight: 500;
+        }
+        .footer-location {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(0.55rem, 0.8vw, 0.75rem);
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: rgba(234, 230, 223, 0.78);
+            margin-top: 0.4rem;
+            font-weight: 700;
+        }
+
         :focus-visible {
             outline: 2px solid var(--color-copper);
-            outline-offset: 3px;
+            outline-offset: 4px;
+            border-radius: 2px;
         }
         .hamburger-btn:focus-visible {
             outline: 2px solid var(--color-copper);
-            outline-offset: 6px;
+            outline-offset: 8px;
         }
 
-        /* Print */
         @media print {
             .noise-layer,
             .signature-cursor,
             video,
             .mobile-menu-overlay,
-            .hamburger-btn {
+            .hamburger-btn,
+            .scroll-indicator {
                 display: none !important;
             }
             body {
@@ -398,293 +1655,225 @@
                 color: #000;
                 cursor: auto;
             }
+            .hero,
+            .vision,
+            .protocols,
+            .location,
+            .reviews,
+            .footer {
+                padding: 2rem 0;
+                break-inside: avoid;
+            }
         }
     </style>
 </head>
 
-<body class="antialiased selection:bg-brand-copper selection:text-brand-espresso">
+<body class="antialiased">
 
-    <!-- Skip to content -->
     <a href="#main-content" class="skip-to-content">Skip to Content</a>
 
-    <!-- Ambient Noise & Signature Cursor -->
     <div class="noise-layer" aria-hidden="true"></div>
     <div class="signature-cursor" id="signature-cursor" aria-hidden="true"></div>
 
-    <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
         <a href="#vision" class="mobile-nav-link">Vision</a>
         <a href="#suites" class="mobile-nav-link">The Suites</a>
         <a href="#protocols" class="mobile-nav-link">Protocols</a>
-        <a href="https://www.airbnb.com/users/profile/1469068484573002164?previous_page_name=PdpHomeMarketplace" target="_blank" rel="noopener noreferrer" class="mobile-nav-link text-brand-copper">Reserve</a>
+        <a href="https://www.airbnb.com/users/profile/1469068484573002164?previous_page_name=PdpHomeMarketplace" target="_blank" rel="noopener noreferrer" class="mobile-nav-link" style="color:var(--color-copper);">Reserve</a>
     </div>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 w-full z-50 pointer-events-none mix-blend-difference" aria-label="Main navigation">
-        <div class="w-full px-6 md:px-16 py-8 md:py-10 flex justify-between items-center">
-            <!-- Logo -->
-            <div class="pointer-events-auto magnetic-target inline-block" data-strength="20">
-                <a href="#" class="font-display text-brand-sand text-xl md:text-2xl tracking-[0.25em] uppercase font-bold relative group" aria-label="Casa Cecy Home">
+    <nav class="nav" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-logo magnetic-target" data-strength="18">
+                <a href="#" aria-label="Casa Cecy Home">
                     Casa Cecy
-                    <span class="absolute -bottom-2 left-0 w-0 h-[1px] bg-brand-copper transition-all duration-500 group-hover:w-full"></span>
+                    <span class="underline"></span>
                 </a>
             </div>
-            <!-- Desktop Nav Links -->
-            <div class="pointer-events-auto hidden md:flex flex-col items-end space-y-4 pr-8">
-                <a href="#vision" class="magnetic-target text-xs tracking-[0.4em] font-display text-white uppercase hover:text-brand-copper transition-colors duration-300 transform origin-right hover:scale-110 drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)] font-extrabold">Vision</a>
-                <a href="#suites" class="magnetic-target text-xs tracking-[0.4em] font-display text-white uppercase hover:text-brand-copper transition-colors duration-300 transform origin-right hover:scale-110 drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)] font-extrabold">The Suites</a>
-                <a href="#protocols" class="magnetic-target text-xs tracking-[0.4em] font-display text-white uppercase hover:text-brand-copper transition-colors duration-300 transform origin-right hover:scale-110 drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)] font-extrabold">Protocols</a>
-                <a href="https://www.airbnb.com/users/profile/1469068484573002164?previous_page_name=PdpHomeMarketplace" target="_blank" rel="noopener noreferrer" class="magnetic-target mt-4 text-xs tracking-[0.4em] font-display text-[#EAA27B] uppercase relative group overflow-hidden pl-4 drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)] font-extrabold">
-                    <span class="absolute left-0 top-1/2 -translate-y-1/2 w-2 h-[1px] bg-[#EAA27B] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
-                    <span class="group-hover:pl-2 transition-all duration-300 block">Reserve</span>
+            <div class="nav-links-desktop">
+                <a href="#vision">Vision</a>
+                <a href="#suites">The Suites</a>
+                <a href="#protocols">Protocols</a>
+                <a href="https://www.airbnb.com/users/profile/1469068484573002164?previous_page_name=PdpHomeMarketplace" target="_blank" rel="noopener noreferrer" class="nav-reserve">
+                    <span class="arrow"></span>
+                    <span>Reserve</span>
                 </a>
             </div>
-            <!-- Hamburger (Mobile) -->
-            <button class="hamburger-btn pointer-events-auto md:hidden" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
+            <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span><span></span><span></span>
             </button>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main id="main-content" class="relative z-10 w-full">
+    <main id="main-content" class="main-content">
 
-        <!-- Hero Section -->
-        <section class="relative min-h-[110vh] w-full flex items-center bg-brand-espresso" id="hero-section" aria-label="Hero">
-            <!-- Background Video with Asymmetrical Mask -->
-            <div class="absolute top-0 right-0 w-full md:w-[85%] h-full z-0 overflow-hidden" style="clip-path:polygon(0 0,100% 0,100% 100%,15% 100%);">
-                <div class="absolute inset-0 bg-gradient-to-l from-brand-espresso/40 via-brand-espresso/70 to-brand-espresso mix-blend-multiply z-10 pointer-events-none"></div>
-                <div class="absolute inset-0 bg-brand-terracotta/20 mix-blend-overlay z-10 pointer-events-none"></div>
-                <video src="https://r2-uploader-production.up.railway.app/files/fee32765-4640-4855-adfa-d60a76a05e0f.mp4" autoplay loop muted playsinline class="w-full h-full object-cover parallax-media scale-110 transform-gpu" aria-hidden="true"></video>
+        <section class="hero" id="hero-section" aria-label="Hero">
+            <div class="hero-video-mask">
+                <div class="hero-video-overlay"></div>
+                <div class="hero-video-tint"></div>
+                <video src="https://r2-uploader-production.up.railway.app/files/fee32765-4640-4855-adfa-d60a76a05e0f.mp4" autoplay loop muted playsinline class="hero-video parallax-media" aria-hidden="true" preload="auto"></video>
             </div>
 
-            <!-- Hero Content -->
-            <div class="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-16 pt-28 md:pt-32">
-                <div class="flex flex-col items-start w-full md:w-2/3 lg:w-1/2">
-                    <div class="overflow-hidden mb-6">
-                        <p class="font-display tracking-[0.5em] text-brand-copper uppercase text-xs md:text-sm clip-reveal drop-shadow-md font-bold">Phoenix, Arizona</p>
+            <div class="hero-content">
+                <div style="overflow:hidden;margin-bottom:clamp(1rem,2vw,1.5rem);">
+                    <p class="hero-subtitle clip-reveal">Phoenix, Arizona</p>
+                </div>
+
+                <div class="hero-headline-group">
+                    <div style="overflow:hidden;width:100%;">
+                        <h1 class="hero-headline clip-reveal" style="transition-delay:0.1s;">WELCOME</h1>
                     </div>
-                    <!-- Staggered Headline -->
-                    <div class="relative flex flex-col items-start mb-12 z-10 w-full">
-                        <div class="overflow-hidden w-full">
-                            <h1 class="text-[4rem] min-[400px]:text-[5rem] md:text-[8rem] lg:text-[11rem] font-display text-brand-sand tracking-widest leading-[0.8] drop-shadow-2xl clip-reveal" style="transition-delay:0.1s;">
-                                WELCOME
-                            </h1>
+                    <div class="hero-script-pos">
+                        <div style="overflow:hidden;">
+                            <span class="hero-script-home clip-reveal" style="transition-delay:0.3s;">Home</span>
                         </div>
-                        <div class="absolute top-[60%] md:top-[70%] left-[5%] min-[400px]:left-[15%] md:left-[35%] flex flex-col items-start z-20 pointer-events-none">
-                            <div class="overflow-hidden">
-                                <span class="block font-script text-[4.5rem] min-[400px]:text-[5.5rem] md:text-[8rem] lg:text-[10rem] text-white leading-none clip-reveal drop-shadow-2xl" style="transition-delay:0.3s;transform:rotate(-4deg);">Home</span>
-                            </div>
-                            <div class="overflow-hidden -mt-6 md:-mt-16 ml-8 md:ml-24">
-                                <span class="block font-script text-[3rem] min-[400px]:text-[3.5rem] md:text-[5rem] lg:text-[6rem] text-brand-copper leading-none clip-reveal drop-shadow-2xl" style="transition-delay:0.4s;transform:rotate(2deg);">&amp; relax</span>
-                            </div>
+                        <div style="overflow:hidden;">
+                            <span class="hero-script-relax clip-reveal" style="transition-delay:0.4s;">&amp; relax</span>
                         </div>
                     </div>
-                    <div class="mt-20 md:mt-32 w-full max-w-md ml-0 md:ml-12 border-l-2 border-brand-copper/60 pl-6 md:pl-8 fade-offset" style="transition-delay:0.6s;">
-                        <p class="font-serif text-xl md:text-2xl text-brand-sand leading-relaxed italic drop-shadow-lg font-medium">
-                            A thoughtfully designed tiny-home community featuring on-site dining, quiet surroundings, and dedicated hospitality.
-                        </p>
-                    </div>
-                    <div class="mt-12 md:mt-16 ml-0 md:ml-12 fade-offset" style="transition-delay:0.7s;">
-                        <a href="https://www.airbnb.com/users/profile/1469068484573002164?previous_page_name=PdpHomeMarketplace" target="_blank" rel="noopener noreferrer" class="magnetic-target inline-flex items-center justify-center bg-transparent border-2 border-brand-copper text-brand-sand font-display text-xs tracking-[0.4em] uppercase px-8 md:px-12 py-5 md:py-6 transition-all duration-500 hover:bg-brand-copper hover:text-brand-espresso group overflow-hidden relative shadow-[0_0_15px_rgba(192,107,62,0.4)]">
-                            <span class="relative z-10 font-bold">Check Availability</span>
-                            <div class="absolute inset-0 bg-brand-terracotta transform scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-tactile z-0"></div>
-                        </a>
-                    </div>
+                </div>
+
+                <div class="hero-description fade-offset" style="transition-delay:0.6s;">
+                    <p>A thoughtfully designed tiny-home community featuring on-site dining, quiet surroundings, and dedicated hospitality.</p>
+                </div>
+
+                <div class="hero-btn-wrap fade-offset" style="transition-delay:0.7s;">
+                    <a href="https://www.airbnb.com/users/profile/1469068484573002164?previous_page_name=PdpHomeMarketplace" target="_blank" rel="noopener noreferrer" class="hero-btn magnetic-target group" data-strength="12">
+                        <span>Check Availability</span>
+                        <div class="btn-overlay"></div>
+                    </a>
                 </div>
             </div>
 
-            <!-- Scroll Indicator -->
-            <div class="absolute bottom-0 right-8 md:right-24 z-20 flex flex-col items-center pb-12 mix-blend-difference" aria-hidden="true">
-                <span class="font-display text-[10px] tracking-[0.3em] text-brand-sand uppercase mb-6 transform rotate-90 origin-bottom translate-y-12">Discover</span>
-                <div class="w-[1px] h-24 bg-brand-sand/20 relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-1/3 bg-brand-copper parallax-scroll-indicator"></div>
+            <div class="scroll-indicator" aria-hidden="true">
+                <span>Discover</span>
+                <div class="scroll-line">
+                    <div class="scroll-line-fill parallax-scroll-indicator"></div>
                 </div>
             </div>
         </section>
 
-        <!-- Vision Section -->
-        <section id="vision" class="py-32 md:py-40 relative bg-brand-sand text-brand-espresso" aria-label="Vision">
-            <div class="absolute top-20 left-10 text-[15vw] font-display font-bold text-brand-charcoal/5 leading-none select-none pointer-events-none whitespace-nowrap z-0" aria-hidden="true">
-                INTENTION
-            </div>
-            <div class="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
-                <div class="flex flex-col lg:flex-row relative">
-                    <!-- Text Block -->
-                    <div class="lg:w-5/12 pt-12 md:pt-20 pb-8 md:pb-10 lg:pl-12 z-20 order-2 lg:order-1 mt-8 lg:mt-0 fade-offset">
-                        <div class="flex items-center space-x-4 mb-8">
-                            <div class="w-12 h-[2px] bg-brand-copper"></div>
-                            <p class="font-display tracking-[0.3em] text-brand-terracotta uppercase text-xs font-bold drop-shadow-sm">The Concept</p>
-                        </div>
-                        <h2 class="text-4xl md:text-6xl lg:text-7xl font-display mb-10 md:mb-12 leading-[1.1] text-brand-charcoal drop-shadow-sm">
-                            Elevated Living,<br>
-                            <span class="italic font-serif text-brand-copper font-bold">Intentionally</span> Scaled.
-                        </h2>
-                        <div class="space-y-6 md:space-y-8 pr-0 lg:pr-12 relative">
-                            <div class="absolute left-0 top-2 bottom-2 w-[2px] bg-brand-charcoal/20 -ml-4 md:-ml-6"></div>
-                            <p class="font-serif text-xl md:text-2xl leading-relaxed text-brand-charcoal font-medium">
-                                Escape to a tranquil oasis just minutes from downtown Phoenix. Casa Cecy is a curated 35-townhome and tiny-living community designed for discerning travelers.
-                            </p>
-                            <p class="font-serif text-lg md:text-xl leading-relaxed text-brand-charcoal font-medium">
-                                We replace the generic hotel experience with deeply personalized hospitality, luxurious interior finishes, and a cohesive, quiet neighborhood atmosphere.
-                            </p>
-                        </div>
+        <section id="vision" class="vision" aria-label="Vision">
+            <div class="vision-bg-text" aria-hidden="true">INTENTION</div>
+            <div class="vision-container">
+                <div class="vision-text fade-offset">
+                    <div class="vision-label">
+                        <div class="vision-label-line"></div>
+                        <p class="vision-label-text">The Concept</p>
                     </div>
-                    <!-- Image Block / Slideshow -->
-                    <div class="lg:w-8/12 lg:absolute right-0 top-0 lg:-translate-y-24 order-1 lg:order-2 z-10 w-full h-[55vh] lg:h-[90vh]" id="suites">
-                        <div class="w-full h-full overflow-hidden relative group shadow-[0_20px_50px_rgba(26,20,18,0.3)] bg-brand-charcoal" id="vision-slideshow" role="img" aria-label="Community photo slideshow">
-                            <img src="https://r2-uploader-production.up.railway.app/files/362f9b68-13d3-40a7-ad31-5aa7e492af29.jpeg" alt="Casa Cecy community overview" class="slideshow-img image-monochrome parallax-media transform scale-110 opacity-100 z-10" loading="eager">
-                            <img src="https://r2-uploader-production.up.railway.app/files/59105c22-0465-4a37-ad3f-134020f6b029.jpeg" alt="Seafoam serenity tiny home" class="slideshow-img image-monochrome parallax-media transform scale-110 opacity-0 z-0" loading="lazy">
-                            <img src="https://r2-uploader-production.up.railway.app/files/a03aa660-db3a-4f0c-8162-409037c28f4c.jpeg" alt="Navy tuck-away suite" class="slideshow-img image-monochrome parallax-media transform scale-110 opacity-0 z-0" loading="lazy">
-                            <img src="https://r2-uploader-production.up.railway.app/files/485654c1-f53d-4f42-9faa-ef9f84505a3f.jpeg" alt="Ocean blue colonial tiny home" class="slideshow-img image-monochrome parallax-media transform scale-110 opacity-0 z-0" loading="lazy">
-                            <img src="https://r2-uploader-production.up.railway.app/files/621c7841-31dd-4b9d-8ebb-7c54e4178afa.jpeg" alt="Wooden paneling modern interior" class="slideshow-img image-monochrome parallax-media transform scale-110 opacity-0 z-0" loading="lazy">
-                            <img src="https://r2-uploader-production.up.railway.app/files/a2a26bd5-f366-450f-aef0-6a2be1ccf2ad.jpeg" alt="Two-tone teal cozy shack" class="slideshow-img image-monochrome parallax-media transform scale-110 opacity-0 z-0" loading="lazy">
-                            <!-- Floating Caption Card -->
-                            <div class="absolute -bottom-8 md:-bottom-12 -left-8 md:-left-12 w-56 md:w-64 h-40 md:h-48 bg-brand-espresso flex items-center justify-center p-6 md:p-8 z-30 transition-transform duration-700 ease-tactile group-hover:translate-x-4 group-hover:-translate-y-4 shadow-2xl hidden md:flex border-t border-r border-brand-copper/10">
-                                <p id="slideshow-caption" class="font-display text-brand-copper text-center text-xs tracking-[0.3em] uppercase transition-opacity duration-500 ease-in-out">Community<br><br>Shot</p>
-                            </div>
-                        </div>
+                    <h2 class="vision-headline">Elevated Living,<br> <em>Intentionally</em> Scaled.</h2>
+                    <div class="vision-desc">
+                        <p>Escape to a tranquil oasis just minutes from downtown Phoenix. Casa Cecy is a curated 35-townhome and tiny-living community designed for discerning travelers.</p>
+                        <p>We replace the generic hotel experience with deeply personalized hospitality, luxurious interior finishes, and a cohesive, quiet neighborhood atmosphere.</p>
+                    </div>
+                </div>
+
+                <div class="vision-image" id="suites">
+                    <div class="slideshow" id="vision-slideshow" role="img" aria-label="Community photo slideshow">
+                        <img src="https://r2-uploader-production.up.railway.app/files/362f9b68-13d3-40a7-ad31-5aa7e492af29.jpeg" alt="Casa Cecy community overview" class="slideshow-img image-monochrome parallax-media active" loading="eager" width="1200" height="800">
+                        <img src="https://r2-uploader-production.up.railway.app/files/59105c22-0465-4a37-ad3f-134020f6b029.jpeg" alt="Seafoam serenity tiny home" class="slideshow-img image-monochrome parallax-media" loading="lazy" width="1200" height="800">
+                        <img src="https://r2-uploader-production.up.railway.app/files/a03aa660-db3a-4f0c-8162-409037c28f4c.jpeg" alt="Navy tuck-away suite" class="slideshow-img image-monochrome parallax-media" loading="lazy" width="1200" height="800">
+                        <img src="https://r2-uploader-production.up.railway.app/files/485654c1-f53d-4f42-9faa-ef9f84505a3f.jpeg" alt="Ocean blue colonial tiny home" class="slideshow-img image-monochrome parallax-media" loading="lazy" width="1200" height="800">
+                        <img src="https://r2-uploader-production.up.railway.app/files/621c7841-31dd-4b9d-8ebb-7c54e4178afa.jpeg" alt="Wooden paneling modern interior" class="slideshow-img image-monochrome parallax-media" loading="lazy" width="1200" height="800">
+                        <img src="https://r2-uploader-production.up.railway.app/files/a2a26bd5-f366-450f-aef0-6a2be1ccf2ad.jpeg" alt="Two-tone teal cozy shack" class="slideshow-img image-monochrome parallax-media" loading="lazy" width="1200" height="800">
+                    </div>
+                    <div class="gallery-caption-card">
+                        <p id="slideshow-caption" class="gallery-caption-text">Community<br><br>Shot</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Protocols Section -->
-        <section id="protocols" class="py-24 md:py-40 relative bg-brand-charcoal text-brand-sand border-t border-brand-espresso" aria-label="Protocols & Standards">
-            <div class="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
-                <div class="mb-16 md:mb-32 md:ml-24 fade-offset">
-                    <p class="font-display tracking-[0.3em] text-brand-copper uppercase text-xs mb-6 font-bold drop-shadow-md">Our Standards</p>
-                    <h2 class="text-4xl md:text-7xl font-display leading-tight md:leading-none text-brand-sand drop-shadow-lg">Uncompromising<br><span class="text-brand-terracotta italic font-serif">Quality.</span></h2>
+        <section id="protocols" class="protocols" aria-label="Protocols & Standards">
+            <div class="protocols-container">
+                <div class="protocols-head fade-offset">
+                    <p class="protocols-label">Our Standards</p>
+                    <h2 class="protocols-title">Uncompromising<br><em>Quality.</em></h2>
                 </div>
-                <!-- Staggered List -->
-                <div class="relative w-full flex flex-col space-y-12 md:space-y-0">
-                    <!-- Item 1 -->
-                    <div class="w-full md:w-[45%] bg-brand-espresso p-8 md:p-16 relative fade-offset group z-30 shadow-2xl">
-                        <div class="absolute top-0 right-0 text-[6rem] md:text-[8rem] font-display font-black text-brand-charcoal leading-none -mt-10 md:-mt-16 -mr-4 md:-mr-8 opacity-50 group-hover:text-brand-copper transition-colors duration-500 pointer-events-none" aria-hidden="true">01</div>
-                        <h3 class="font-display text-xl md:text-2xl tracking-widest uppercase mb-6 md:mb-8 text-brand-sand relative z-10 font-bold drop-shadow-md">Premium Comfort</h3>
-                        <ul class="font-serif text-lg md:text-xl text-brand-sand/90 space-y-4 leading-relaxed relative z-10 font-medium">
-                            <li class="flex items-start"><span class="text-brand-copper mr-4 mt-1 font-bold drop-shadow-md" aria-hidden="true">✦</span> Climate-controlled (A/C &amp; Heating)</li>
-                            <li class="flex items-start"><span class="text-brand-copper mr-4 mt-1 font-bold drop-shadow-md" aria-hidden="true">✦</span> Fully stocked modern kitchens</li>
-                            <li class="flex items-start"><span class="text-brand-copper mr-4 mt-1 font-bold drop-shadow-md" aria-hidden="true">✦</span> 42-inch HDTVs with streaming</li>
-                            <li class="flex items-start"><span class="text-brand-copper mr-4 mt-1 font-bold drop-shadow-md" aria-hidden="true">✦</span> Dedicated workspaces with Wi-Fi</li>
+                <div class="protocols-cards">
+                    <div class="protocol-card protocol-card-1 fade-offset group">
+                        <div class="protocol-card-number" aria-hidden="true">01</div>
+                        <h3 class="protocol-card-title">Premium Comfort</h3>
+                        <ul class="protocol-card-list">
+                            <li><span class="bullet">✦</span> Climate-controlled (A/C &amp; Heating)</li>
+                            <li><span class="bullet">✦</span> Fully stocked modern kitchens</li>
+                            <li><span class="bullet">✦</span> 42-inch HDTVs with streaming</li>
+                            <li><span class="bullet">✦</span> Dedicated workspaces with Wi-Fi</li>
                         </ul>
                     </div>
-                    <!-- Item 2 -->
-                    <div class="w-full md:w-[40%] bg-brand-terracotta p-8 md:p-16 md:ml-auto md:-mt-32 relative fade-offset group z-20 shadow-2xl">
-                        <div class="absolute top-0 left-0 text-[6rem] md:text-[8rem] font-display font-black text-brand-copper/40 leading-none -mt-8 md:-mt-12 -ml-6 md:-ml-12 group-hover:text-brand-espresso transition-colors duration-500 pointer-events-none" aria-hidden="true">02</div>
-                        <h3 class="font-display text-xl md:text-2xl tracking-widest uppercase mb-6 md:mb-8 text-brand-espresso relative z-10 font-bold drop-shadow-sm">Property Protocol</h3>
-                        <ul class="font-serif text-lg md:text-xl text-brand-sand space-y-4 leading-relaxed relative z-10 font-medium drop-shadow-sm">
-                            <li class="flex items-start"><span class="text-brand-espresso mr-4 mt-1 font-bold" aria-hidden="true">✦</span> Strict 3-guest maximum</li>
-                            <li class="flex items-start"><span class="text-brand-espresso mr-4 mt-1 font-bold" aria-hidden="true">✦</span> Long-term stays (28+ days)</li>
-                            <li class="flex items-start"><span class="text-brand-espresso mr-4 mt-1 font-bold" aria-hidden="true">✦</span> On-site laundry facilities</li>
-                            <li class="flex items-start"><span class="text-brand-espresso mr-4 mt-1 font-bold" aria-hidden="true">✦</span> Free secure parking</li>
+                    <div class="protocol-card protocol-card-2 fade-offset group">
+                        <div class="protocol-card-number" aria-hidden="true">02</div>
+                        <h3 class="protocol-card-title">Property Protocol</h3>
+                        <ul class="protocol-card-list">
+                            <li><span class="bullet">✦</span> Strict 3-guest maximum</li>
+                            <li><span class="bullet">✦</span> Long-term stays (28+ days)</li>
+                            <li><span class="bullet">✦</span> On-site laundry facilities</li>
+                            <li><span class="bullet">✦</span> Free secure parking</li>
                         </ul>
                     </div>
-                    <!-- Item 3 -->
-                    <div class="w-full md:w-[50%] bg-transparent border-l-2 border-b-2 border-brand-copper/60 p-8 md:p-16 md:ml-[15%] md:-mt-12 relative fade-offset group z-10">
-                        <div class="absolute top-0 right-4 md:right-10 text-[6rem] md:text-[8rem] font-display font-black text-brand-espresso leading-none -mt-12 md:-mt-20 group-hover:text-brand-copper transition-colors duration-500 pointer-events-none" aria-hidden="true">03</div>
-                        <h3 class="font-display text-xl md:text-2xl tracking-widest uppercase mb-6 md:mb-8 text-brand-copper relative z-10 font-bold drop-shadow-md">Security &amp; Access</h3>
-                        <ul class="font-serif text-lg md:text-xl text-brand-sand/90 space-y-4 leading-relaxed relative z-10 font-medium">
-                            <li class="flex items-start"><span class="text-brand-terracotta mr-4 mt-1 font-bold drop-shadow-md" aria-hidden="true">✦</span> 24/7 exterior surveillance</li>
-                            <li class="flex items-start"><span class="text-brand-terracotta mr-4 mt-1 font-bold drop-shadow-md" aria-hidden="true">✦</span> Keypad self check-in</li>
-                            <li class="flex items-start"><span class="text-brand-terracotta mr-4 mt-1 font-bold drop-shadow-md" aria-hidden="true">✦</span> Private suite entrances</li>
-                            <li class="flex items-start"><span class="text-brand-terracotta mr-4 mt-1 font-bold drop-shadow-md" aria-hidden="true">✦</span> On-site staff available</li>
+                    <div class="protocol-card protocol-card-3 fade-offset group">
+                        <div class="protocol-card-number" aria-hidden="true">03</div>
+                        <h3 class="protocol-card-title">Security &amp; Access</h3>
+                        <ul class="protocol-card-list">
+                            <li><span class="bullet">✦</span> 24/7 exterior surveillance</li>
+                            <li><span class="bullet">✦</span> Keypad self check-in</li>
+                            <li><span class="bullet">✦</span> Private suite entrances</li>
+                            <li><span class="bullet">✦</span> On-site staff available</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Location Matrix Section -->
-        <section class="py-24 md:py-40 bg-brand-espresso text-brand-sand relative border-t border-brand-charcoal overflow-hidden" aria-label="Location Matrix">
-            <svg class="absolute top-0 right-0 w-full h-full pointer-events-none opacity-5" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
+        <section class="location" aria-label="Location Matrix">
+            <svg class="location-bg-svg" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
                 <path d="M0,500 Q250,200 500,500 T1000,500" fill="none" stroke="#C06B3E" stroke-width="2" />
                 <circle cx="500" cy="500" r="10" fill="#C06B3E" />
             </svg>
-            <div class="max-w-[1200px] mx-auto px-6 md:px-12 relative z-10">
-                <div class="mb-12 md:mb-24 flex flex-col md:flex-row justify-between items-end fade-offset">
+            <div class="location-container">
+                <div class="location-head fade-offset">
                     <div>
-                        <h2 class="text-3xl md:text-6xl font-display mb-4 text-brand-sand drop-shadow-lg font-bold">The Location <span class="italic text-brand-terracotta">Matrix</span></h2>
-                        <p class="font-serif text-brand-sand/90 text-lg md:text-2xl font-medium drop-shadow-sm">Perfectly positioned for business, events, and exploration.</p>
+                        <h2 class="location-title">The Location <em>Matrix</em></h2>
+                        <p class="location-subtitle">Perfectly positioned for business, events, and exploration.</p>
                     </div>
-                    <div class="hidden md:block w-32 h-[2px] bg-brand-copper/80 mb-4 shadow-[0_0_10px_rgba(192,107,62,0.5)]"></div>
+                    <div class="location-divider"></div>
                 </div>
-                <div class="matrix-container flex flex-col w-full font-display text-base md:text-3xl tracking-widest uppercase">
-                    <div class="matrix-row flex justify-between items-center py-5 md:py-8 border-t border-brand-charcoal cursor-none group fade-offset">
-                        <span class="text-brand-sand group-hover:text-white transition-colors duration-300 relative z-10 pl-0 group-hover:pl-4 transition-all font-bold drop-shadow-md">Downtown Phoenix</span>
-                        <span class="text-brand-copper text-xs md:text-lg relative z-10 font-serif italic font-bold drop-shadow-md">2.0 MI</span>
-                    </div>
-                    <div class="matrix-row flex justify-between items-center py-5 md:py-8 border-t border-brand-charcoal cursor-none group fade-offset" style="transition-delay:0.1s;">
-                        <span class="text-brand-sand group-hover:text-white transition-colors duration-300 relative z-10 pl-0 group-hover:pl-4 transition-all font-bold drop-shadow-md">Convention Center</span>
-                        <span class="text-brand-copper text-xs md:text-lg relative z-10 font-serif italic font-bold drop-shadow-md">3.0 MI</span>
-                    </div>
-                    <div class="matrix-row flex justify-between items-center py-5 md:py-8 border-t border-brand-charcoal cursor-none group fade-offset" style="transition-delay:0.2s;">
-                        <span class="text-brand-sand group-hover:text-white transition-colors duration-300 relative z-10 pl-0 group-hover:pl-4 transition-all font-bold drop-shadow-md">Footprint Center</span>
-                        <span class="text-brand-copper text-xs md:text-lg relative z-10 font-serif italic font-bold drop-shadow-md">3.0 MI</span>
-                    </div>
-                    <div class="matrix-row flex justify-between items-center py-5 md:py-8 border-t border-brand-charcoal cursor-none group fade-offset" style="transition-delay:0.3s;">
-                        <span class="text-brand-sand group-hover:text-white transition-colors duration-300 relative z-10 pl-0 group-hover:pl-4 transition-all font-bold drop-shadow-md">Chase Field</span>
-                        <span class="text-brand-copper text-xs md:text-lg relative z-10 font-serif italic font-bold drop-shadow-md">3.0 MI</span>
-                    </div>
-                    <div class="matrix-row flex justify-between items-center py-5 md:py-8 border-t border-brand-charcoal cursor-none group fade-offset" style="transition-delay:0.4s;">
-                        <span class="text-brand-sand group-hover:text-white transition-colors duration-300 relative z-10 pl-0 group-hover:pl-4 transition-all font-bold drop-shadow-md">Phoenix Art Museum</span>
-                        <span class="text-brand-copper text-xs md:text-lg relative z-10 font-serif italic font-bold drop-shadow-md">3.0 MI</span>
-                    </div>
-                    <div class="matrix-row flex justify-between items-center py-5 md:py-8 border-t border-b border-brand-charcoal cursor-none group fade-offset" style="transition-delay:0.5s;">
-                        <span class="text-brand-sand group-hover:text-white transition-colors duration-300 relative z-10 pl-0 group-hover:pl-4 transition-all font-bold drop-shadow-md">Sky Harbor Airport</span>
-                        <span class="text-brand-copper text-xs md:text-lg relative z-10 font-serif italic font-bold drop-shadow-md">10.0 MI</span>
-                    </div>
+                <div class="matrix-container">
+                    <div class="matrix-row fade-offset"><span class="location-name">Downtown Phoenix</span><span class="distance">2.0 MI</span></div>
+                    <div class="matrix-row fade-offset" style="transition-delay:0.1s;"><span class="location-name">Convention Center</span><span class="distance">3.0 MI</span></div>
+                    <div class="matrix-row fade-offset" style="transition-delay:0.2s;"><span class="location-name">Footprint Center</span><span class="distance">3.0 MI</span></div>
+                    <div class="matrix-row fade-offset" style="transition-delay:0.3s;"><span class="location-name">Chase Field</span><span class="distance">3.0 MI</span></div>
+                    <div class="matrix-row fade-offset" style="transition-delay:0.4s;"><span class="location-name">Phoenix Art Museum</span><span class="distance">3.0 MI</span></div>
+                    <div class="matrix-row fade-offset" style="transition-delay:0.5s;"><span class="location-name">Sky Harbor Airport</span><span class="distance">10.0 MI</span></div>
                 </div>
             </div>
         </section>
 
-        <!-- Reviews Section -->
-        <section class="py-24 md:py-40 bg-brand-sand text-brand-espresso overflow-hidden relative" aria-label="Guest Reviews">
-            <div class="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10">
-                <div class="flex flex-col mb-12 md:mb-24 fade-offset">
-                    <p class="font-display tracking-[0.3em] text-brand-copper uppercase text-xs mb-4 font-bold drop-shadow-sm">Guest Experiences</p>
-                    <div class="flex items-baseline space-x-4 md:space-x-6">
-                        <h2 class="text-5xl md:text-8xl font-display text-brand-charcoal tracking-tight font-bold">4.94</h2>
-                        <span class="text-2xl md:text-3xl font-script text-brand-terracotta font-bold">/ 5.00</span>
+        <section class="reviews" aria-label="Guest Reviews">
+            <div class="reviews-container">
+                <div class="reviews-header fade-offset">
+                    <p class="reviews-label">Guest Experiences</p>
+                    <div class="reviews-score">
+                        <span class="reviews-score-number">4.94</span>
+                        <span class="reviews-score-outof">/ 5.00</span>
                     </div>
-                    <p class="font-serif text-brand-charcoal/90 mt-4 text-lg md:text-xl italic border-l-2 border-brand-copper pl-4 font-medium">Based on 103 verified reviews</p>
+                    <p class="reviews-based">Based on 103 verified reviews</p>
                 </div>
-                <!-- Polaroid Deck -->
-                <div class="flex flex-col md:flex-row justify-center items-center md:items-start space-y-8 md:space-y-0 md:space-x-8 lg:space-x-12 relative min-h-[400px] md:min-h-[500px]">
-                    <!-- Card 1 -->
-                    <div class="polaroid-card w-full md:w-1/3 bg-white p-8 md:p-12 shadow-xl border border-brand-sand/50 fade-offset relative z-10 magnetic-target" style="transform:rotate(-3deg);transition-delay:0.1s;" data-strength="10">
-                        <div class="flex text-brand-terracotta text-xl md:text-2xl mb-6 md:mb-8 tracking-widest drop-shadow-sm" aria-label="5 stars">★★★★★</div>
-                        <blockquote class="font-serif text-lg md:text-2xl text-brand-charcoal leading-relaxed mb-8 md:mb-10 italic font-medium">
-                            "Another amazing stay! My favorite place to stay when in Phoenix. The host is amazing and responsive as always. Everything is clean and comfortable. Can't wait to come back again soon!"
-                        </blockquote>
-                        <div class="flex items-center">
-                            <div class="w-8 h-[2px] bg-brand-copper mr-4"></div>
-                            <cite class="font-display text-[10px] md:text-xs tracking-[0.3em] uppercase text-brand-espresso font-bold not-italic">Katie, Wyoming</cite>
-                        </div>
+                <div class="polaroid-deck">
+                    <div class="polaroid-card fade-offset magnetic-target" style="transform:rotate(-3deg);transition-delay:0.1s;" data-strength="10">
+                        <div class="polaroid-stars" aria-label="5 stars">★★★★★</div>
+                        <blockquote class="polaroid-quote">"Another amazing stay! My favorite place to stay when in Phoenix. The host is amazing and responsive as always. Everything is clean and comfortable. Can't wait to come back again soon!"</blockquote>
+                        <div class="polaroid-author"><div class="polaroid-author-line"></div><cite class="polaroid-author-name">Katie, Wyoming</cite></div>
                     </div>
-                    <!-- Card 2 -->
-                    <div class="polaroid-card w-full md:w-1/3 bg-[#FDFBF7] p-8 md:p-12 shadow-2xl border border-brand-sand/50 fade-offset relative z-20 mt-0 md:mt-24 magnetic-target" style="transform:rotate(2deg);transition-delay:0.2s;" data-strength="10">
-                        <div class="flex text-brand-terracotta text-xl md:text-2xl mb-6 md:mb-8 tracking-widest drop-shadow-sm" aria-label="5 stars">★★★★★</div>
-                        <blockquote class="font-serif text-lg md:text-2xl text-brand-charcoal leading-relaxed mb-8 md:mb-10 italic font-medium">
-                            "Cecy offers exceptional hospitality, responds promptly to any concerns, and truly goes above and beyond for a perfect stay. Couldn't recommend her more highly!"
-                        </blockquote>
-                        <div class="flex items-center">
-                            <div class="w-8 h-[2px] bg-brand-copper mr-4"></div>
-                            <cite class="font-display text-[10px] md:text-xs tracking-[0.3em] uppercase text-brand-espresso font-bold not-italic">Melissa</cite>
-                        </div>
+                    <div class="polaroid-card fade-offset magnetic-target" style="transform:rotate(2deg);transition-delay:0.2s;" data-strength="10">
+                        <div class="polaroid-stars" aria-label="5 stars">★★★★★</div>
+                        <blockquote class="polaroid-quote">"Cecy offers exceptional hospitality, responds promptly to any concerns, and truly goes above and beyond for a perfect stay. Couldn't recommend her more highly!"</blockquote>
+                        <div class="polaroid-author"><div class="polaroid-author-line"></div><cite class="polaroid-author-name">Melissa</cite></div>
                     </div>
-                    <!-- Card 3 -->
-                    <div class="polaroid-card w-full md:w-1/3 bg-white p-8 md:p-12 shadow-xl border border-brand-sand/50 fade-offset relative z-10 md:-mt-8 magnetic-target" style="transform:rotate(-1deg);transition-delay:0.3s;" data-strength="10">
-                        <div class="flex text-brand-terracotta text-xl md:text-2xl mb-6 md:mb-8 tracking-widest drop-shadow-sm" aria-label="5 stars">★★★★★</div>
-                        <blockquote class="font-serif text-lg md:text-2xl text-brand-charcoal leading-relaxed mb-8 md:mb-10 italic font-medium">
-                            "I booked at the last minute... pleasantly surprised upon arrival. The heat worked wonderfully, kitchen was stocked... I felt safe and the property is close to many Phoenix attractions."
-                        </blockquote>
-                        <div class="flex items-center">
-                            <div class="w-8 h-[2px] bg-brand-copper mr-4"></div>
-                            <cite class="font-display text-[10px] md:text-xs tracking-[0.3em] uppercase text-brand-espresso font-bold not-italic">Jabari, Arizona</cite>
-                        </div>
+                    <div class="polaroid-card fade-offset magnetic-target" style="transform:rotate(-1deg);transition-delay:0.3s;" data-strength="10">
+                        <div class="polaroid-stars" aria-label="5 stars">★★★★★</div>
+                        <blockquote class="polaroid-quote">"I booked at the last minute... pleasantly surprised upon arrival. The heat worked wonderfully, kitchen was stocked... I felt safe and the property is close to many Phoenix attractions."</blockquote>
+                        <div class="polaroid-author"><div class="polaroid-author-line"></div><cite class="polaroid-author-name">Jabari, Arizona</cite></div>
                     </div>
                 </div>
             </div>
@@ -692,24 +1881,21 @@
 
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-brand-charcoal pt-20 md:pt-32 pb-10 md:pb-16 relative overflow-hidden text-brand-sand border-t border-brand-copper/50 shadow-[inset_0_20px_40px_rgba(26,20,18,0.8)]" role="contentinfo">
-        <div class="absolute bottom-[-5vw] md:bottom-[-10vw] left-[-2vw] md:left-[-5vw] text-[25vw] md:text-[20vw] font-script text-brand-espresso/80 pointer-events-none select-none z-0" aria-hidden="true">
-            Casa
-        </div>
-        <div class="max-w-[1400px] mx-auto px-6 md:px-12 relative z-10 flex flex-col md:flex-row justify-between items-start md:items-end">
-            <div class="flex flex-col items-start w-full md:w-1/2 mb-10 md:mb-0">
-                <h2 class="font-display text-3xl md:text-5xl tracking-[0.2em] uppercase mb-6 md:mb-12 text-brand-sand drop-shadow-lg font-bold">Casa Cecy</h2>
-                <div class="flex flex-col space-y-4 font-display text-xs md:text-sm tracking-[0.3em] uppercase text-brand-sand/90 font-bold">
-                    <a href="https://www.airbnb.com/users/profile/1469068484573002164?previous_page_name=PdpHomeMarketplace" target="_blank" rel="noopener noreferrer" class="magnetic-target inline-block hover:text-brand-copper transition-colors w-max transform origin-left hover:scale-105 duration-300 drop-shadow-md">Contact</a>
-                    <a href="#" class="magnetic-target inline-block hover:text-brand-copper transition-colors w-max transform origin-left hover:scale-105 duration-300 drop-shadow-md">Policies</a>
-                    <a href="#" class="magnetic-target inline-block hover:text-brand-copper transition-colors w-max transform origin-left hover:scale-105 duration-300 drop-shadow-md">Location Directory</a>
+    <footer class="footer" role="contentinfo">
+        <div class="footer-bg-text" aria-hidden="true">Casa</div>
+        <div class="footer-container">
+            <div class="footer-left">
+                <h2 class="footer-logo">Casa Cecy</h2>
+                <div class="footer-links">
+                    <a href="https://www.airbnb.com/users/profile/1469068484573002164?previous_page_name=PdpHomeMarketplace" target="_blank" rel="noopener noreferrer">Contact</a>
+                    <a href="#">Policies</a>
+                    <a href="#">Location Directory</a>
                 </div>
             </div>
-            <div class="w-full md:w-1/2 flex flex-col items-start md:items-end text-left md:text-right mt-6 md:mt-0">
-                <a href="https://www.airbnb.com/users/profile/1469068484573002164?previous_page_name=PdpHomeMarketplace" target="_blank" rel="noopener noreferrer" class="magnetic-target inline-block mb-10 md:mb-16 text-3xl md:text-5xl font-script text-brand-copper hover:text-white transition-colors duration-500 drop-shadow-lg">Reserve your stay</a>
-                <p class="font-serif text-base md:text-lg text-brand-sand/80 italic font-medium">&copy; 2026 Casa Cecy Community.</p>
-                <p class="font-display text-[10px] md:text-xs tracking-[0.3em] text-brand-sand/80 mt-2 uppercase font-bold">Phoenix, Arizona.</p>
+            <div class="footer-right">
+                <a href="https://www.airbnb.com/users/profile/1469068484573002164?previous_page_name=PdpHomeMarketplace" target="_blank" rel="noopener noreferrer" class="footer-cta magnetic-target" data-strength="14">Reserve your stay</a>
+                <p class="footer-copy">&copy; 2026 Casa Cecy Community.</p>
+                <p class="footer-location">Phoenix, Arizona.</p>
             </div>
         </div>
     </footer>
@@ -717,109 +1903,102 @@
     <script>
         (function() {
             'use strict';
-
             const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             const hasFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-
-            // ── Custom Cursor ────────────────────────────
             const signatureCursor = document.getElementById('signature-cursor');
-            let mouseX = window.innerWidth / 2;
-            let mouseY = window.innerHeight / 2;
-            let cursorX = mouseX;
-            let cursorY = mouseY;
+            let mouseX = window.innerWidth / 2,
+                mouseY = window.innerHeight / 2,
+                cursorX = mouseX,
+                cursorY = mouseY;
             let cursorActive = false;
+            let rafId = null;
 
             function enableCustomCursor() {
                 if (!hasFinePointer || prefersReducedMotion || !signatureCursor) return;
                 document.body.classList.add('custom-cursor-active');
                 signatureCursor.style.display = '';
                 cursorActive = true;
+                if (!rafId) rafId = requestAnimationFrame(animateCursor);
             }
 
             function disableCustomCursor() {
                 document.body.classList.remove('custom-cursor-active');
                 if (signatureCursor) signatureCursor.style.display = 'none';
                 cursorActive = false;
-            }
-
-            if (hasFinePointer && !prefersReducedMotion) {
-                enableCustomCursor();
-            }
-
-            // Listen for changes
-            window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', (e) => {
-                if (e.matches) {
-                    disableCustomCursor();
-                } else if (hasFinePointer) {
-                    enableCustomCursor();
+                if (rafId) {
+                    cancelAnimationFrame(rafId);
+                    rafId = null;
                 }
+            }
+            if (hasFinePointer && !prefersReducedMotion) enableCustomCursor();
+            window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', (e) => {
+                if (e.matches) disableCustomCursor();
+                else if (hasFinePointer) enableCustomCursor();
             });
 
-            if (cursorActive && signatureCursor) {
-                document.addEventListener('mousemove', (e) => {
-                    mouseX = e.clientX;
-                    mouseY = e.clientY;
-                }, { passive: true });
-
-                function animateCursor() {
-                    if (!cursorActive) return;
-                    cursorX += (mouseX - cursorX) * 0.25;
-                    cursorY += (mouseY - cursorY) * 0.25;
+            function animateCursor() {
+                if (!cursorActive) {
+                    rafId = null;
+                    return;
+                }
+                const dx = mouseX - cursorX;
+                const dy = mouseY - cursorY;
+                cursorX += dx * 0.22;
+                cursorY += dy * 0.22;
+                if (signatureCursor) {
                     signatureCursor.style.left = cursorX + 'px';
                     signatureCursor.style.top = cursorY + 'px';
-                    requestAnimationFrame(animateCursor);
                 }
-                requestAnimationFrame(animateCursor);
+                rafId = requestAnimationFrame(animateCursor);
+            }
 
-                // Interactive states
-                const interactables = document.querySelectorAll('a, button, .matrix-row, .hamburger-btn');
-                interactables.forEach(el => {
-                    el.addEventListener('mouseenter', () => {
-                        signatureCursor.classList.add('active');
-                    });
-                    el.addEventListener('mouseleave', () => {
-                        signatureCursor.classList.remove('active');
-                    });
+            if (cursorActive && signatureCursor) {
+                document.addEventListener('mousemove', (e) => { mouseX = e.clientX;
+                    mouseY = e.clientY; }, { passive: true });
+
+                const interactiveSelector = 'a, button, .matrix-row, .hamburger-btn, .polaroid-card, .magnetic-target, [role="button"]';
+                document.querySelectorAll(interactiveSelector).forEach(el => {
+                    el.addEventListener('mouseenter', () => signatureCursor.classList.add(
+                        'active'));
+                    el.addEventListener('mouseleave', () => signatureCursor.classList.remove(
+                        'active'));
                 });
 
-                // Click feedback
                 document.addEventListener('mousedown', () => {
-                    signatureCursor.style.transform = 'translate(-50%, -50%) scale(0.7) rotate(45deg)';
-                    document.body.style.transform = 'scale(0.998)';
-                    document.body.style.transition = 'transform 0.1s ease';
+                    signatureCursor.classList.add('clicking');
                 });
                 document.addEventListener('mouseup', () => {
-                    signatureCursor.style.transform = 'translate(-50%, -50%) scale(1) rotate(45deg)';
-                    document.body.style.transform = 'scale(1)';
-                    document.body.style.transition = 'transform 0.4s cubic-bezier(0.7, 0, 0.3, 1)';
+                    signatureCursor.classList.remove('clicking');
+                });
+                document.addEventListener('mouseleave', () => {
+                    signatureCursor.style.opacity = '0';
+                });
+                document.addEventListener('mouseenter', () => {
+                    signatureCursor.style.opacity = '1';
                 });
             }
 
-            // ── Magnetic Targets ─────────────────────────
-            const magneticTargets = document.querySelectorAll('.magnetic-target');
-            magneticTargets.forEach(target => {
+            document.querySelectorAll('.magnetic-target').forEach(target => {
                 target.addEventListener('mousemove', (e) => {
                     if (!cursorActive) return;
                     const rect = target.getBoundingClientRect();
                     const x = e.clientX - rect.left - rect.width / 2;
                     const y = e.clientY - rect.top - rect.height / 2;
-                    const strength = parseFloat(target.getAttribute('data-strength')) || 15;
-                    target.style.transform = 'translate(' + (x / strength) + 'px, ' + (y / strength) +
-                        'px) scale(1.05)';
+                    const strength = parseFloat(target.getAttribute('data-strength')) ||
+                        15;
+                    target.style.transform = 'translate(' + (x / strength) + 'px, ' + (
+                        y / strength) + 'px) scale(1.04)';
                 });
                 target.addEventListener('mouseleave', () => {
                     target.style.transform = '';
                     if (target.classList.contains('polaroid-card')) {
-                        const inline = target.style.cssText;
-                        const match = inline.match(/rotate\(([^)]+)\)/);
-                        if (match) {
-                            target.style.transform = 'rotate(' + match[1] + ') scale(1)';
-                        }
+                        const match = target.style.cssText.match(/rotate\(([^)]+)\)/);
+                        if (match) target.style.transform = 'rotate(' + match[1] +
+                            ') scale(1)';
                     }
                 });
             });
 
-            // ── Mobile Menu ──────────────────────────────
             const hamburgerBtn = document.getElementById('hamburger-btn');
             const mobileMenu = document.getElementById('mobile-menu');
             const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
@@ -829,10 +2008,7 @@
                 hamburgerBtn.classList.add('open');
                 hamburgerBtn.setAttribute('aria-expanded', 'true');
                 document.body.style.overflow = 'hidden';
-                // Focus first link
-                setTimeout(() => {
-                    if (mobileNavLinks.length > 0) mobileNavLinks[0].focus();
-                }, 300);
+                setTimeout(() => { if (mobileNavLinks.length) mobileNavLinks[0].focus(); }, 350);
             }
 
             function closeMenu() {
@@ -842,185 +2018,88 @@
                 document.body.style.overflow = '';
                 hamburgerBtn.focus();
             }
+            hamburgerBtn.addEventListener('click', () => { mobileMenu.classList.contains('open') ? closeMenu() :
+                openMenu(); });
+            mobileNavLinks.forEach(link => link.addEventListener('click', closeMenu));
+            document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && mobileMenu.classList.contains(
+                    'open')) closeMenu(); });
 
-            if (hamburgerBtn && mobileMenu) {
-                hamburgerBtn.addEventListener('click', () => {
-                    if (mobileMenu.classList.contains('open')) {
-                        closeMenu();
-                    } else {
-                        openMenu();
-                    }
-                });
-
-                mobileNavLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        closeMenu();
-                    });
-                });
-
-                // Close on Escape
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
-                        closeMenu();
-                    }
-                });
-
-                // Trap focus inside mobile menu
-                mobileMenu.addEventListener('keydown', (e) => {
-                    if (e.key === 'Tab' && mobileMenu.classList.contains('open')) {
-                        const focusable = mobileMenu.querySelectorAll(
-                            'a, button, [tabindex]:not([tabindex="-1"])');
-                        if (focusable.length === 0) return;
-                        const first = focusable[0];
-                        const last = focusable[focusable.length - 1];
-                        if (e.shiftKey && document.activeElement === first) {
-                            e.preventDefault();
-                            last.focus();
-                        } else if (!e.shiftKey && document.activeElement === last) {
-                            e.preventDefault();
-                            first.focus();
-                        }
-                    }
-                });
-            }
-
-            // ── Slideshow ────────────────────────────────
             const slides = document.querySelectorAll('.slideshow-img');
             const captionEl = document.getElementById('slideshow-caption');
-            const callingCards = [
-                'Community<br><br>Shot',
-                'Seafoam<br><br>Serenity Mini',
-                'Navy<br><br>Tuck-away',
-                'Ocean Blue<br><br>Colonial',
-                'Wooden Paneling<br><br>Modern',
-                'Two-tone Teal<br><br>Cozy-shack'
+            const callingCards = ['Community<br><br>Shot', 'Seafoam<br><br>Serenity Mini', 'Navy<br><br>Tuck-away',
+                'Ocean Blue<br><br>Colonial', 'Wooden Paneling<br><br>Modern', 'Two-tone Teal<br><br>Cozy-shack'
             ];
-
-            if (slides.length > 0 && captionEl) {
-                let currentSlide = 0;
-                let slideInterval;
+            if (slides.length && captionEl) {
+                let currentSlide = 0,
+                    slideInterval;
 
                 function goToSlide(index) {
-                    slides[currentSlide].classList.remove('opacity-100', 'z-10');
-                    slides[currentSlide].classList.add('opacity-0', 'z-0');
+                    slides[currentSlide].classList.remove('active');
                     captionEl.style.opacity = '0';
                     currentSlide = index;
                     setTimeout(() => {
                         captionEl.innerHTML = callingCards[currentSlide];
                         captionEl.style.opacity = '1';
-                    }, 500);
-                    slides[currentSlide].classList.remove('opacity-0', 'z-0');
-                    slides[currentSlide].classList.add('opacity-100', 'z-10');
+                    }, 550);
+                    slides[currentSlide].classList.add('active');
                 }
 
-                function startSlideshow() {
-                    slideInterval = setInterval(() => {
-                        const next = (currentSlide + 1) % slides.length;
-                        goToSlide(next);
-                    }, 4500);
-                }
-
+                function startSlideshow() { slideInterval = setInterval(() => { goToSlide((currentSlide + 1) % slides
+                            .length); }, 4800); }
                 startSlideshow();
-
-                // Pause on hover
                 const slideshowContainer = document.getElementById('vision-slideshow');
-                if (slideshowContainer) {
-                    slideshowContainer.addEventListener('mouseenter', () => {
-                        clearInterval(slideInterval);
-                    });
-                    slideshowContainer.addEventListener('mouseleave', () => {
-                        startSlideshow();
-                    });
-                    // Touch: pause on touch, resume after
-                    slideshowContainer.addEventListener('touchstart', () => {
-                        clearInterval(slideInterval);
-                    }, { passive: true });
-                    slideshowContainer.addEventListener('touchend', () => {
-                        startSlideshow();
-                    });
-                }
+                slideshowContainer.addEventListener('mouseenter', () => clearInterval(slideInterval));
+                slideshowContainer.addEventListener('mouseleave', startSlideshow);
+                slideshowContainer.addEventListener('touchstart', () => clearInterval(slideInterval), { passive: true });
+                slideshowContainer.addEventListener('touchend', startSlideshow);
             }
-
-            // ── Intersection Observer for Scroll Reveals ─
-            const revealOptions = {
-                root: null,
-                rootMargin: '0px 0px -8% 0px',
-                threshold: 0.08
-            };
 
             const revealObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('in-view');
-                        // Don't unobserve so elements can re-trigger if needed
-                        // (For a single-page site, this is fine)
+                        revealObserver.unobserve(entry.target);
                     }
                 });
-            }, revealOptions);
+            }, { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
+            document.querySelectorAll('.clip-reveal, .fade-offset').forEach(el => revealObserver.observe(el));
 
-            document.querySelectorAll('.clip-reveal, .fade-offset').forEach(el => {
-                revealObserver.observe(el);
-            });
-
-            // ── Parallax ──────────────────────────────────
             const parallaxElements = document.querySelectorAll('.parallax-media');
             const parallaxIndicator = document.querySelector('.parallax-scroll-indicator');
             let ticking = false;
-            let lastScrollY = 0;
 
             function updateParallax() {
                 const scrollY = window.pageYOffset;
                 parallaxElements.forEach(el => {
                     const rect = el.getBoundingClientRect();
                     if (rect.top < window.innerHeight + 200 && rect.bottom > -200) {
-                        const speed = 0.12;
-                        const yPos = -(scrollY * speed);
-                        el.style.transform = 'translate3d(0,' + yPos + 'px,0) scale(1.1)';
+                        el.style.transform = 'translate3d(0,' + (-scrollY * 0.1) +
+                            'px,0) scale(1.12)';
                     }
                 });
                 if (parallaxIndicator && scrollY < window.innerHeight) {
-                    parallaxIndicator.style.transform = 'translate3d(0,' + (scrollY * 0.5) +
+                    parallaxIndicator.style.transform = 'translate3d(0,' + (scrollY * 0.45) +
                         'px,0)';
                 }
                 ticking = false;
             }
-
             window.addEventListener('scroll', () => {
-                lastScrollY = window.pageYOffset;
                 if (!ticking) {
-                    requestAnimationFrame(() => {
-                        updateParallax();
-                        ticking = false;
-                    });
+                    requestAnimationFrame(() => { updateParallax(); });
                     ticking = true;
                 }
             }, { passive: true });
-
-            // Initial call
             updateParallax();
-
-            // ── Reduced Motion Cleanup ───────────────────
             if (prefersReducedMotion) {
-                document.querySelectorAll('.parallax-media').forEach(el => {
-                    el.style.transform = 'scale(1.1)';
-                });
-                document.querySelectorAll('.clip-reveal').forEach(el => {
-                    el.classList.add('in-view');
-                });
-                document.querySelectorAll('.fade-offset').forEach(el => {
-                    el.classList.add('in-view');
-                });
+                document.querySelectorAll('.parallax-media').forEach(el => el.style.transform = 'scale(1.12)');
+                document.querySelectorAll('.clip-reveal, .fade-offset').forEach(el => el.classList.add(
+                'in-view'));
             }
-
-            // ── Handle resize / orientation change ───────
             let resizeTimeout;
             window.addEventListener('resize', () => {
                 clearTimeout(resizeTimeout);
-                resizeTimeout = setTimeout(() => {
-                    updateParallax();
-                }, 250);
+                resizeTimeout = setTimeout(updateParallax, 300);
             }, { passive: true });
-
         })();
     </script>
 </body>
